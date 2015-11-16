@@ -1,0 +1,17 @@
+<template>
+	<h1><span class="glyphicon glyphicon-info-sign"></span>Aurelia Grids / Lists</h1>
+
+	<div class="ui segment">
+		<h2 class="ui dividing header">Grid [Semantic]</h2>
+		<grid datasource.bind="items">
+			<column field="name" filterable sortable></column>
+			<column field="title" filterable sortable></column>
+			<boolean-column field="active" filterable sortable></boolean-column>
+			<button-column click.trigger="semanticGridButtonClick"></button-column>
+			<custom-column>
+				<input type="text" value="Custom">
+				<input type="checkbox">
+			</custom-column>
+		</grid>
+	</div>
+</template>

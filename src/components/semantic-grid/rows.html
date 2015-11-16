@@ -1,0 +1,7 @@
+<template>
+	<div class="row" repeat.for="row of datasource">
+		<div class="column" repeat.for="column of columns">
+			<compose view="./columns/${columnRowTemplateFilename(column)}"></compose>
+		</div>
+	</div>
+</template>
