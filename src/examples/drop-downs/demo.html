@@ -1,0 +1,29 @@
+<template>
+	<require from="./semantic-drop-down"></require>
+
+	<form type="form">
+		<div class="panel panel-default">
+			<div class="panel panel-heading">Semantic</div>
+			<div class="panel-body">
+				<semantic-drop-down 
+					placeholder="Semantic"
+					value.two-way="selectedItemId"
+					datasource.bind="items"
+					changed.bind="semanticDropDownChanged">
+				</semantic-drop-down>
+			</div>
+		</div>
+	</form>
+
+	<div class="panel panel-default">
+		<div class="panel panel-heading">
+			<label>Log</label>
+			<span if.bind="selectedItemId">
+				(Currently Selected ID: ${selectedItemId})
+			</span>
+		</div>
+		<div class="panel panel-body">
+			<p repeat.for="event of events">${event}</p>
+		</div>
+	</div>
+</template>

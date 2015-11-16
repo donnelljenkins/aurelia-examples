@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aurelia</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/semantic.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body aurelia-app="main">
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+      // Loads WeakMap polyfill needed by MutationObservers
+      System.import('core-js').then(function() {
+        // Imports MutationObserver polyfill
+        return System.import('polymer/mutationobservers');
+      }).then(function() {
+        System.import('aurelia-bootstrapper');
+      });
+    </script>
+  </body>
+</html>

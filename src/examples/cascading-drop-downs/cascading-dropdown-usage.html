@@ -1,0 +1,29 @@
+<template>
+	<require from='./cascading-drop-downs'></require>
+	<require from='./drop-down'></require>
+
+		<cascading-drop-downs>
+			<template replace-part="drop-downs">
+				<drop-down 
+					title="Classifications"
+					items.bind="viewModel.classes"
+					selected.bind="viewModel.selectedClass"
+					handle-selected.bind="viewModel.classChanged"
+					visible.bind="true">
+				</drop-down>
+				<drop-down
+					title="Genders"
+					items.bind="viewModel.genders"
+					selected.bind="viewModel.selectedGender"
+					handle-selected.bind="viewModel.genderChanged"
+					visible.bind="!!viewModel.selectedClass">
+				</drop-down>
+				<drop-down 
+					title="People"
+					items.bind="viewModel.people"
+					selected.bind="viewModel.selectedPerson"
+					visible.bind="!!viewModel.selectedGender">
+				</drop-down>
+			</template>
+		</cascading-drop-downs>
+</template>

@@ -1,0 +1,36 @@
+<template>
+	<require from="../address"></require>
+
+	<div>
+		<div class="btn-group btn-group-justified" role="group">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default" data-toggle="collapse" data-target="#details-${contact.id}">
+					<div class="hidden-xs col-sm-6 col-md-3 text-left">
+						<h4>${contact.first} ${contact.last}</h4>
+					</div>
+					<div class="visible-xs">
+						<h4>${contact.first} ${contact.last}</h4>
+					</div>
+					<div class="hidden-xs hidden-sm col-md-6 text-left">
+						<address model.bind="contact.address" one-line></address>
+					</div>
+					<div class="hidden-xs col-sm-6 col-md-3 text-right">
+						<div repeat.for="phone of contact.phones">
+							<compose view="../phone-number.html"></compose>
+						</div>
+					</div>
+				</button>
+			</div>
+		</div>
+
+		<div id="details-${contact.id}" class="collapse in">
+			<div class="col-xs-1"></div>
+			<div class="col-xs-11">
+				<address model.bind="contact.address"></address>
+				<div repeat.for="phone of contact.phones">
+					<compose view="../phone-number.html" model.bind="contact"></compose>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,12 @@
+<template>
+	<span if.bind="oneLine === ''" class="glyphicon glyphicon-home"></span>
+	<span if.bind="oneLine === ''">
+		${model.street1} ${model.street2} ${model.city}, ${model.state} ${model.zip}
+	</span>
+
+	<div if.bind="oneLine !== ''" class="">
+		<p><span class="glyphicon glyphicon-home"></span> ${model.street1}</p>
+		<p>${model.street2}</p>
+		<p>${model.city}, ${model.state} ${model.zip}</p>
+	</div>
+</template>

@@ -1,0 +1,12 @@
+<template>
+	<div class="ui fluid selection dropdown">
+  		<input type="hidden" name="user" value.two-way="value">
+  		<i class="dropdown icon"></i>
+  		<div class="default text">${placeholder}</div>
+  		<div class="menu">
+    		<div class="item" data-value="${item.id}" repeat.for="item of datasource">
+      			${item.name}
+    		</div>
+  		</div>
+	</div>
+</template>

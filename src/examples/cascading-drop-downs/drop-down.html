@@ -1,0 +1,18 @@
+<template>
+	<form role="form" show.bind="visible">
+		<div class="form-group">
+			<label>${title}</label>
+			
+			<div if.bind="!items.length">Loading ...</div>
+
+			<select show.bind="items.length"
+					class="form-control"
+					value.bind="selected"
+					onchange.delegate="selectedChanged()">
+				<option repeat.for="item of items" value.bind="item">
+					${item}
+				</option>
+			</select>
+		</div>
+	</form>
+</template>

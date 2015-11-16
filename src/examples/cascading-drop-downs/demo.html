@@ -1,0 +1,57 @@
+<template>
+	<require from='./cascading-dropdown-usage'></require>
+	<require from='../../demo-tabs'></require>
+
+	<h1><span class="glyphicon glyphicon-info-sign"></span> Aurelia Cascading Drop Down Examples</h1>
+
+	<demo-tabs heading="No Defaults" javascript.bind="javascript" html.bind="html">
+		<template replace-part="demo">
+			<cascading-dropdown-usage></cascading-dropdown-example>
+		</template>
+	</demo-tabs>
+
+	<demo-tabs heading="Class Default" panel-type="primary" javascript.bind="javascript" html.bind="html">
+		<template replace-part="demo">
+			<cascading-dropdown-usage 
+				selected-class="developer">
+			</cascading-dropdown-usage>
+		</template>
+	</demo-tabs>
+
+	<demo-tabs heading="Class &amp; Gender Defaults" panel-type="success" javascript.bind="javascript" html.bind="html">
+		<template replace-part="demo">
+			<cascading-dropdown-usage
+				selected-class="developer"
+				selected-gender="female">
+			</cascading-dropdown-usage>
+		</template>
+	</demo-tabs>
+
+	<demo-tabs heading="Class, Gender &amp; Person Defaults" panel-type="warning" javascript.bind="javascript" html.bind="html">
+		<template replace-part="demo">
+			<cascading-dropdown-usage 
+				selected-class="developer"
+				selected-gender="female"
+				selected-person="Linda">
+			</cascading-dropdown-usage>
+		</template>
+	</demo-tabs>
+
+	<demo-tabs heading="Class &amp; Person Defaults" panel-type="danger" javascript.bind="javascript" html.bind="html">
+		<template replace-part="demo">
+			<cascading-dropdown-usage 
+				selected-class="developer"
+				selected-person="Linda">
+			</cascading-dropdown-usage>
+		</template>
+	</demo-tabs>
+
+	<demo-tabs heading="Gender &amp; Person Defaults" panel-type="info" javascript.bind="javascript" html.bind="html">
+		<template replace-part="demo">
+			<cascading-dropdown-usage
+				selected-gender="female"
+				selected-person="Linda">
+			</cascading-dropdown-usage>
+		</template>
+	</demo-tabs>
+</template>

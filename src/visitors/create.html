@@ -1,0 +1,204 @@
+<template>
+	<form role="form" validate.bind="validator.validation">
+		<div class="panel">
+			<button role="button" disabled class="btn btn-success">Record</button>
+			<button role="button" disabled class="btn btn-success">Queue</button>
+			<button role="button" type="submit" class="btn btn-primary" click.trigger="addVisitor()">
+				<span class="glyphicon glyphicon-plus"></span>
+				Add Visitor
+			</button>
+			<a href="https://gist.github.com/donnelljenkins/3a232bf70f771bc0b545" target="_blank">Gist (Link to the HTML &amp; JavaScript code)</a>
+		</div>
+
+		<div class="panel panel-info" show.bind="addedVisitor">
+			<div class="panel-heading">Visitor Info Pushed to API <span class="close" click.trigger="addedVisitor = false">x</span></div>
+			<div class="panel-body">
+				<pre>${visitorInformation}</pre>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span class="glyphicon red glyphicon-exclamation-sign"></span>
+				Primary Information
+			</div>
+
+			<div class="panel-body">
+				<div class="col-sm-6">
+					<select class="form-control">
+						<option>Walk In</option>
+						<option>Call in</option>
+					</select>
+				</div>
+
+				<div class="col-sm-6">
+					<select  class="form-control" placeholder="Craft Category" value.bind="visitor.craftCategoryId">
+						<option repeat.for="craftCategory of craftCategories" value.bind="craftCategory.id">
+							${craftCategory.name}
+						</option>
+					</select>
+				</div>
+
+				<div class="col-sm-12">
+					<label>Demographics</label>
+				</div>
+
+				<div class="col-sm-4 form-group">
+					<input type="text" class="form-control" value.bind="visitor.firstName" placeholder="First" validate="firstName">
+				</div>
+
+				<div class="col-sm-4">
+					<input type="text" class="form-control" value.bind="visitor.middle" placeholder="Middle">
+				</div>
+
+				<div class="col-sm-4 form-group">
+					<input type="text" class="form-control" value.bind="visitor.lastName" placeholder="Last" validate="lastName">
+				</div>
+
+				<div class="col-sm-12">
+					<label>Primary Craft</label>
+				</div>
+
+				<div class="col-sm-3 form-group">
+					<select class="form-control" value.bind="visitor.primaryCraft.clientTypeId" validate="primaryCraft.clientTypeId">
+						<option value="" disabled selected>Client Type</option>
+						<option repeat.for="clientType of clientTypes" value.bind="clientType.id">
+							${clientType.name}
+						</option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<select class="form-control" value.bind="visitor.primaryCraft.clientStepId">
+						<option value="" disabled selected>Client Step</option>
+						<option repeat.for="clientStep of clientSteps" value.bind="clientStep.id">
+							${clientStep.name}
+						</option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<div class="input-group">
+	      				<input type="number" class="form-control" placeholder="Experience" value.bind="visitor.primaryCraft.monthsOfExperience" aria-describedby="primary-months">
+	      				<span class="input-group-addon" id="primary-months">months</span>
+	    			</div>
+				</div>
+
+				<div class="col-sm-3">
+					<div class="input-group">
+	      				<input type="number" class="form-control" placeholder="Experience" value.bind="visitor.primaryCraft.yearsOfExperience" aria-describedby="primary-years">
+	      				<span class="input-group-addon" id="primary-years">years</span>
+	    			</div>
+				</div>
+
+				<div class="col-sm-12">
+					<label>TWIC</label>
+				</div>
+
+				<div class="col-sm-4">
+					<select class="form-control" value.bind="hasTwic">
+						<option value="" disabled selected>Has TWIC?</option>
+						<option value="true">Yes</option>
+						<option value="false">No</option>
+					</select>
+				</div>
+
+				<div class="col-sm-4" show.bind="hasTwic === 'true'">
+					<input class="form-control" placeholder="Expiration Date" value.bind="visitor.twic.expirationDate">
+				</div>
+
+				<div class="col-sm-4" show.bind="hasTwic === 'true'">
+					<input class="form-control" placeholder="Card Number" value.bind="visitor.twic.cardNumber">
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">Optional Information</div>
+
+			<div class="panel-body">
+				<div class="col-sm-6 form-group">
+					<div class="input-group" validate="phoneNumber">
+						<input class="form-control" placeholder="Phone" value.bind="visitor.phoneNumber">
+						<span class="input-group-addon glyphicon glyphicon-phone"></span>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="input-group">
+						<input class="form-control" placeholder="Email" value.bind="visitor.emailAddress">
+						<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<label>Secondary Craft</label>
+				</div>
+
+				<div class="col-sm-3">
+					<select class="form-control" value.bind="visitor.secondaryCraft.clientTypeId">
+						<option value="" disabled selected>Client Type</option>
+						<option repeat.for="clientType of clientTypes" value.bind="clientType.id">
+							${clientType.name}
+						</option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<select class="form-control" value.bind="visitor.secondaryCraft.clientStepId">
+						<option value="" disabled selected>Client Step</option>
+						<option repeat.for="clientStep of clientSteps" value.bind="clientStep.id">
+							${clientStep.name}
+						</option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<input type="number" class="form-control" value.bind="visitor.secondaryCraft.monthsOfExperience" placeholder="Months">
+				</div>
+				<div class="col-sm-3">
+					<input type="number" class="form-control" value.bind="visitor.secondaryCraft.yearsOfExperience" placeholder="Years">
+				</div>
+
+				<div class="col-sm-12">
+					<label>Certifications</label>
+				</div>
+
+				<div repeat.for="visitorCertification of visitor.certifications">
+					<div class="col-sm-3">
+						<select class="form-control" value.bind="visitorCertification.certificationId">
+							<option value="" disabled selected>Name</option>
+							<option value.bind="certification.id" repeat.for="certification of $parent.certifications">
+								${certification.name}
+							</option>
+						</select>
+					</div>
+
+					<div class="col-sm-3">
+						<input class="form-control" placeholder="Issue Date" value.bind="visitorCertification.issueDate">
+					</div>
+
+					<div class="col-sm-2">
+						<input class="form-control" placeholder="Expiration Date" value.bind="visitorCertification.expirationDate">
+					</div>
+
+					<div class="col-sm-2">
+						<input class="form-control" placeholder="Card Number" value.bind="visitorCertification.cardNumber">
+					</div>
+
+					<div class="col-sm-1" show.bind="$parent.visitor.certifications.length < $parent.certifications.length">
+						<button class="btn btn-link form-control" click.trigger="$parent.addVisitorCertification()">
+							<span class="glyphicon green glyphicon-plus"></span>
+						</button>
+					</div>
+
+					<div class="col-sm-1">
+						<button class="btn btn-link form-control" click.trigger="$parent.deleteVisitorCertification($index)">
+							<span class="glyphicon red glyphicon-minus"></span>
+						</button>
+					</div>
+
+					<div class="col-sm-12">
+						<label></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</template>

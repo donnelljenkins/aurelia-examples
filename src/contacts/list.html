@@ -1,0 +1,19 @@
+<template>
+	<require from="./contact-card"></require>
+
+	<h1><span class="glyphicon glyphicon-user"></span> Contacts</h1>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<form class="" role="search">
+				<div class="form-group">
+					<input type="search" class="form-control" placeholder="Search" value.bind="filter & debounce:300" id="filter">
+				</div>
+			</form>
+
+			<div repeat.for="contact of contacts">
+				<contact-card contact.bind="contact"></contact-card>
+			</div>
+		</div>
+	</div>
+</template>

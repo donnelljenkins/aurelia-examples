@@ -1,0 +1,39 @@
+<template>
+	<require from='../../demo-tabs'></require>
+	
+	<h1><span class="glyphicon glyphicon-info-sign"></span>Aurelia Checkbox Binding</h1>
+
+	<demo-tabs heading="No Defaults" javascript.bind="javascript" html.bind="html">
+		<template replace-part="demo">
+			<div class="col-xs-6">
+				<h4>CSS Frameworks</h4>
+				<form role="form">
+					<div class="form-group">
+						<div class="radio" repeat.for="framework of $parent.frameworks">
+							<label>
+								<input type="radio" name="optradio" model.one-time="framework" checked.bind="$parent.$parent.selectedFramework">
+								${framework.name}
+							</label>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-xs-6">
+				<h4>Selected Framework</h4>
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<td>Name</td>
+							<th>${$parent.selectedFramework.name}</th>
+						</tr>
+						<tr>
+							<td>ID</td>
+							<th>${$parent.selectedFramework.id}</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</template>
+	</demo-tabs>
+</template>

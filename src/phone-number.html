@@ -1,0 +1,6 @@
+<template>
+	<require from="./value-converters/phone"></require>
+
+	<span class="glyphicon glyphicon-phone${phone.type === 'home' ? '-alt' : ''}"></span>
+	${phone.number | phone}
+</template>

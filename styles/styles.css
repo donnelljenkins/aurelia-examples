@@ -1,0 +1,16 @@
+body {
+    background-image: url("../../images/triangular_@2X.png");;
+    background-attachment: fixed;
+}
+
+.green {
+	color: green;
+}
+
+.red { 
+	color: red;
+}
+
+.input-group-addon.glyphicon {
+	top: 0px;
+}
