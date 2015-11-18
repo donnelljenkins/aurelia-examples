@@ -19,6 +19,6 @@ export class Demo {
 	}
 
 	semanticGridButtonClick() {
-		alert('Semantic grid clcked!');
+		alert('Semantic grid clicked!');
 	}
 }

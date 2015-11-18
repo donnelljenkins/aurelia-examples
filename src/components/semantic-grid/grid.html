@@ -1,9 +1,27 @@
 <template>
-	<div class.bind="gridClass">
-		<compose view="./columns/columns.html" containerless></compose>
+	<table class="ui celled striped table">
+		<thead>
+			<tr>
+				<th class.bind="column.alignment + ' aligned'" repeat.for="column of columns">
+					<compose view="./columns/column-heading-template.html" containerless></compose>
+				</th>
+			</tr>			
+		</thead>
 
-		<compose view="./rows.html" containerless></compose>
+		<tbody>
+			<tr repeat.for="row of datasource">
+				<td class.bind="column.alignment + ' aligned'" repeat.for="column of columns">
+					<compose view="./columns/${columnRowTemplateFilename(column)}" containerless></compose>
+				</td>
+			</tr>
+		</tbody>
 
-		<compose view="./footer.html" containerless></compose>
-	</div>
+		<tfoot>
+			<tr>
+				<td>
+					<compose view="./footer.html" containerless></compose>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
 </template>

@@ -7,8 +7,9 @@ export class App {
         // Examples
         { route: ['','examples'], name: 'examples', moduleId: './examples/examples', nav: true, title:'Aurelia Examples' },
       	{ route: 'bootstrap-checkbox-examples', name: 'bootstrap-checkbox-examples', moduleId: './examples/checkboxes/demo', nav: true, title:'Aurelia Checkbox Binding' },
-        { route: 'drop-down-examples', name: 'drop-down-examples', moduleId: './examples/drop-downs/demo', nav: true, title:'Aurelia Drop Downs' },
         { route: 'cascading-dropdown-examples', name: 'cascading-dropdown-examples', moduleId: './examples/cascading-drop-downs/demo', nav: true, title:'Aurelia Cascading Drop Down Example' },
+        { route: 'drop-down-examples', name: 'drop-down-examples', moduleId: './examples/drop-downs/demo', nav: true, title:'Aurelia Drop Downs' },
+        { route: 'grid-examples', name: 'grid-examples', moduleId: './examples/grids/demo', nav: true, title:'Aurelia Grids' },
       	
         // Others
         { route: 'contacts', name: 'contacts', moduleId: './contacts/list', nav: true, title:'Contacts' },

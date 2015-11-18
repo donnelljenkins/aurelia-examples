@@ -4,8 +4,11 @@ import utility from "../utility";
 
 @noView
 @inject(Grid)
-export class Column {
-	@bindable alignment;
+export class ButtonColumn {
+	@bindable alignment = 'center aligned';
+	@bindable caption;
+	@bindable click;
+	@bindable buttonClass = 'ui button';
 	@bindable field;
 	@bindable filterable;
 	@bindable heading;

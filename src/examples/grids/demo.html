@@ -7,7 +7,7 @@
 			<column field="name" filterable sortable></column>
 			<column field="title" filterable sortable></column>
 			<boolean-column field="active" filterable sortable></boolean-column>
-			<button-column click.trigger="semanticGridButtonClick"></button-column>
+			<button-column heading="Actions" caption="Select" click.trigger="semanticGridButtonClick()"></button-column>
 			<custom-column>
 				<input type="text" value="Custom">
 				<input type="checkbox">

@@ -6,7 +6,8 @@ export function configure(aurelia) {
 		.developmentLogging()
 		.plugin('aurelia-validation', config => {
 			config.useViewStrategy(TWBootstrapViewStrategy.AppendToInput);
-		});
+		})
+		.feature('components/semantic-grid');
 
 	aurelia.start().then(a => a.setRoot());
 }

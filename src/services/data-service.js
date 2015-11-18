@@ -23,6 +23,10 @@ export class DataService {
 		return this.load(this.dropdownSamples);
 	}
 
+	getGridSamples() {
+		return this.load(this.gridSamples);
+	}
+
 	load(data) {
 		return new Promise((resolve, reject) => {
 			resolve(data);
@@ -32,8 +36,6 @@ export class DataService {
 	certifications = [{ id: 1, name: 'NCCER'}, { id: 2, name: 'NCCER Plus'}];
 	clientSteps = [{ id: 1, name: 'A'},{ id: 2, name: 'B'},{ id: 3, name: 'C'},{ id: 4, name: 'I'},{ id: 5, name: 'II'},{ id: 6, name: 'III'},{ id: 7, name: 'IV'}];
 	clientTypes = [{ id: 1, name: 'Welder'},{ id: 2, name: 'Boiler Maker'},{ id: 3, name: 'Fire Watch'},{ id: 4, name: 'Hole Watch'}];
-	craftCategories = [{ id: 1, name: 'Craft/Other'},{ id: 2, name: 'Welding'},{ id: 3, name: 'Electrical'}];
-	dropdownSamples = [{id: 1, name: "First"},{id: 2, name: "Second"},{id: 3, name: "Third"},{id: 4, name: "Fourth"},{id: 5, name: "Fifth"},{id: 6, name: "Sixth"}];
 	contacts = [
 	{
 		"id": 0,
@@ -111,4 +113,14 @@ export class DataService {
 			"zip" : "66666"
 		}
 	}];
+	craftCategories = [{ id: 1, name: 'Craft/Other'},{ id: 2, name: 'Welding'},{ id: 3, name: 'Electrical'}];
+	dropdownSamples = [{id: 1, name: "First"},{id: 2, name: "Second"},{id: 3, name: "Third"},{id: 4, name: "Fourth"},{id: 5, name: "Fifth"},{id: 6, name: "Sixth"}];
+	gridSamples = [
+		{id: 1, name: 'First', title: '1st', active: true},
+		{id: 2, name: 'Second', title: '2nd', active: true},
+		{id: 3, name: 'Third', title: '3rd', active: false},
+		{id: 4, name: 'Fourth', title: '4th', active: true},
+		{id: 5, name: 'Fifth', title: '5th', active: false},
+		{id: 6, name: 'Sixth', title: '6th', active: true}
+	];
 }
