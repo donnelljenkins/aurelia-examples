@@ -3,15 +3,13 @@
 
 	<div class="ui segment">
 		<h2 class="ui dividing header">Grid [Semantic]</h2>
-		<grid datasource.bind="items">
+		<grid datasource.bind="items" filters-changed.bind="filtersChanged">
 			<column field="name" filterable sortable></column>
 			<column field="title" filterable sortable></column>
-			<boolean-column field="active" filterable sortable></boolean-column>
-			<button-column heading="Actions" caption="Select" click.trigger="semanticGridButtonClick()"></button-column>
-			<custom-column>
-				<input type="text" value="Custom">
-				<input type="checkbox">
-			</custom-column>
+			<boolean-column field="active" filterable></boolean-column>
+			<button-column heading="Actions" caption="Select" click.call="semanticGridButtonClick($event)"></button-column>
+			<custom-column view="../../../examples/grids/demo-custom-column-template.html" heading="Custom"></custom-column>
+			<column field="id" alignment="right"></column>
 		</grid>
 	</div>
 </template>

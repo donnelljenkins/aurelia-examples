@@ -18,7 +18,8 @@ var config = {
     },
     "dist/system": {
       includes: [
-        'github:Semantic-Org/Semantic-UI'
+        'github:Semantic-Org/Semantic-UI',
+        'github:twbs/bootstrap'
       ],
       options: {
         inject: true,

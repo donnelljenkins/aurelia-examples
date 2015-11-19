@@ -1,9 +1,11 @@
 <template>
-	<table class="ui celled striped table">
+	<table class="ui striped table">
 		<thead>
 			<tr>
-				<th class.bind="column.alignment + ' aligned'" repeat.for="column of columns">
-					<compose view="./columns/column-heading-template.html" containerless></compose>
+				<th class="top aligned" repeat.for="column of columns">
+					<div class.bind="column.alignment + ' aligned'">
+						<compose view="./columns/${columnTemplatePrefix(column)}-heading-template.html" containerless></compose>
+					</div>
 				</th>
 			</tr>			
 		</thead>
@@ -11,7 +13,7 @@
 		<tbody>
 			<tr repeat.for="row of datasource">
 				<td class.bind="column.alignment + ' aligned'" repeat.for="column of columns">
-					<compose view="./columns/${columnRowTemplateFilename(column)}" containerless></compose>
+					<compose view="./columns/${columnTemplatePrefix(column)}-row-template.html" containerless></compose>
 				</td>
 			</tr>
 		</tbody>

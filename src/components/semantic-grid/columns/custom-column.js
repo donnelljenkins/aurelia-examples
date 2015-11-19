@@ -4,34 +4,24 @@ import utility from "../utility";
 
 @noView
 @inject(Grid)
-export class Column {
+export class CustomColumn {
 	@bindable alignment;
 	@bindable field;
 	@bindable filterable;
 	@bindable heading;
 	@bindable sortable;
+	@bindable view;
 
 	constructor(grid) {
 		this.grid = grid;
 	}
 
 	bind() {
-		this.prepare();
+		this.prepareForGrid();
 		this.grid.addColumn(this);
 	}
 
-	prepare() {
-		this.setHeading();
-		this.subscribeToFilterer();
-	}
-
-	subscribeToFilterer() {
-		if(this.filterable === '') {
-			this.grid.filterer.subscribe(this);
-		}
-	}
-
-	setHeading() {
+	prepareForGrid() {
 		this.heading = this.heading || utility.camelCase(this.field);
 	}
 }
