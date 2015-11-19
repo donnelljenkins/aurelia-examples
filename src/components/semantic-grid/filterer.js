@@ -18,12 +18,12 @@ export class Filterer {
 	}
 
 	handleFilterChange(newFilter) {
-		this.addOrUpdateFilters(newFilter);
+		this.addOrUpdateFilter(newFilter);
 		this.removeBlankFilters();
 		this.signalFiltersChanged();
 	}
 
-	addOrUpdateFilters(newFilter) {
+	addOrUpdateFilter(newFilter) {
 		let existingFilter = this.filters.find(filter => { return filter.field === newFilter.field; });
 		if(existingFilter) {
 			existingFilter.value = newFilter.value;
@@ -32,13 +32,13 @@ export class Filterer {
 		}
 	}
 
+	removeBlankFilters() {
+		this.filters = this.filters.filter(filter => { return filter.value || filter.value === false; });
+	}
+
 	signalFiltersChanged() {
 		if(this.filtersChanged) {
 			this.filtersChanged(this.filters);
 		}
-	}
-
-	removeBlankFilters() {
-		this.filters = this.filters.filter(filter => { return filter.value || filter.value === false; });
 	}
 }

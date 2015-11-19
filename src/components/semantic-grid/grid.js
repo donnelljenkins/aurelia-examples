@@ -1,4 +1,4 @@
-import { bindable, children, inject } from "aurelia-framework";
+import { bindable, inject } from "aurelia-framework";
 import { Filterer } from "./filterer";
 import utility from "./utility";
 

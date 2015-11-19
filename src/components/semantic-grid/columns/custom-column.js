@@ -17,11 +17,22 @@ export class CustomColumn {
 	}
 
 	bind() {
-		this.prepareForGrid();
+		this.prepare();
 		this.grid.addColumn(this);
 	}
 
-	prepareForGrid() {
+	prepare() {
+		this.setHeading();
+		this.subscribeToFilterer();
+	}
+
+	setHeading() {
 		this.heading = this.heading || utility.camelCase(this.field);
+	}
+
+	subscribeToFilterer() {
+		if(this.filterable === '') {
+			this.grid.filterer.subscribe(this);
+		}
 	}
 }
