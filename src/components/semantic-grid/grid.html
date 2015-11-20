@@ -4,7 +4,7 @@
 			<tr>
 				<th class="top aligned" repeat.for="column of columns">
 					<div class.bind="column.alignment + ' aligned'">
-						<compose view="./columns/${columnTemplatePrefix(column)}-heading-template.html" containerless></compose>
+						<compose view="./columns/${column.templatePrefix}-heading.html" containerless></compose>
 					</div>
 				</th>
 			</tr>			
@@ -13,7 +13,7 @@
 		<tbody>
 			<tr repeat.for="row of datasource">
 				<td class.bind="column.alignment + ' aligned'" repeat.for="column of columns">
-					<compose view="./columns/${columnTemplatePrefix(column)}-row-template.html" containerless></compose>
+					<compose view="./columns/${column.templatePrefix}-row.html" containerless></compose>
 				</td>
 			</tr>
 		</tbody>

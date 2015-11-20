@@ -19,9 +19,7 @@ export class Demo {
 	}
 
 	filtersChanged = (filters) => {
-		if(!this.allItems) {
-			this.allItems = this.items.slice();
-		}
+		this.cloneAllItemsIfNeeded();
 		this.items.splice(0, this.items.length);
 		this.allItems.forEach(item => {
 			let addItem = !filters.length || this.meetsFilterCriteria(filters, item);
@@ -31,10 +29,41 @@ export class Demo {
 		});
 	}
 
+	cloneAllItemsIfNeeded() {
+		if(!this.allItems) {
+			this.allItems = this.items.slice();
+		}
+	}
+
 	meetsFilterCriteria(filters, item) {
 		return filters.some(filter => {
-			return item[filter.field].toString().toLowerCase().startsWith(filter.value.toString().toLowerCase());
+			return item[filter.property].toString().toLowerCase().startsWith(filter.value.toString().toLowerCase());
 		});
+	}
+
+	sortChanged = (sort) => {
+		if(sort.property) {
+			this.items.sort((itemA, itemB) => {
+				let result = this.compareItems(itemA, itemB, sort.property);
+				return sort.direction === 'desc' ? result * -1 : result;
+			});
+		} else {
+			this.items.sort((itemA, itemB) => {
+				return this.compareItems(itemA, itemB, 'id');
+			});
+		}
+	}
+
+	compareItems(itemA, itemB, property) {
+		if(itemA[property] < itemB[property]) {
+			return -1;
+		}
+		
+		if(itemA[property] > itemB[property]) {
+			return 1;
+		}
+
+		return 0;
 	}
 
 	semanticGridButtonClick(row) {

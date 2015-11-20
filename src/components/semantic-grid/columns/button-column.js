@@ -1,6 +1,6 @@
 import { bindable, inject, noView } from "aurelia-framework";
 import { Grid } from "../grid";
-import utility from "../utility";
+import { columnBase } from "./column-base";
 
 @noView
 @inject(Grid)
@@ -9,32 +9,17 @@ export class ButtonColumn {
 	@bindable buttonClass = 'ui button';
 	@bindable caption;
 	@bindable click;
-	@bindable field;
 	@bindable filterable;
 	@bindable heading;
+	@bindable property;
 	@bindable sortable;
 
 	constructor(grid) {
 		this.grid = grid;
+		Object.assign(this, columnBase);
 	}
 
 	bind() {
-		this.prepare();
-		this.grid.addColumn(this);
-	}
-
-	prepare() {
-		this.setHeading();
-		this.subscribeToFilterer();
-	}
-
-	setHeading() {
-		this.heading = this.heading || utility.camelCase(this.field);
-	}
-
-	subscribeToFilterer() {
-		if(this.filterable === '') {
-			this.grid.filterer.subscribe(this);
-		}
+		this.setup();
 	}
 }

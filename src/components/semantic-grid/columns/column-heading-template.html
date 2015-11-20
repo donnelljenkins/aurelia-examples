@@ -1,9 +1,0 @@
-<template>
-	${column.heading}
-
-	<div if.bind="column.filterable === ''">
-		<div class="ui input">
-			<input type="text" placeholder="Filter" value.bind="column.filterValue & debounce:300">
-		</div>
-	</div>
-</template>

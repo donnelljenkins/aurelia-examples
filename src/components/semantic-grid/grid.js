@@ -1,26 +1,28 @@
 import { bindable, inject } from "aurelia-framework";
-import { Filterer } from "./filterer";
-import utility from "./utility";
+import { Filterer } from "./filtering/filterer";
+import { Sorter } from "./sorting/sorter";
 
-@inject(Filterer)
+@inject(Filterer, Sorter)
 export class Grid {
 	@bindable datasource;
 	@bindable filtersChanged;
-	columns = [];
+	@bindable sortChanged;
 
-	constructor(filterer) {
+	constructor(filterer, sorter) {
+		this.columns = [];
 		this.filterer = filterer;
+		this.sorter = sorter;
 	}
 
-	filtersChangedChanged() {
-		this.filterer.filtersChanged = this.filtersChanged;
+	filtersChangedChanged(newValue) {
+		this.filterer.filtersChanged = newValue;
+	}
+
+	sortChangedChanged(newValue) {
+		this.sorter.sortChanged = newValue;
 	}
 
 	addColumn(column) {
 		this.columns.push(column);
-	}
-
-	columnTemplatePrefix(column) {
-		return utility.snakeCase(column.constructor.name);
 	}
 }

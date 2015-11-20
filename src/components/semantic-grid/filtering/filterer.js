@@ -1,30 +1,28 @@
-import { inject, ObserverLocator, transient } from "aurelia-framework";
+import { transient } from "aurelia-framework";
 
 @transient()
-@inject(ObserverLocator)
 export class Filterer {
 	filters = [];
+	values = {};
 
-	constructor(observerLocator) {
-		this.observerLocator = observerLocator;
+	changeFilter(column, value) {
+		this.values[column.property] = value;
+		this.handleFilterChange(column);
 	}
 
-	subscribe(column) {
-		this.observerLocator
-			.getObserver(column, 'filterValue')
-			.subscribe(newValue => {
-				this.handleFilterChange({ field: column.field, value: newValue });
-			});
+	onInput(column) {
+		return ($event) => this.handleFilterChange(column);
 	}
 
-	handleFilterChange(newFilter) {
+	handleFilterChange(column) {
+		let newFilter = { property: column.property, value: this.values[column.property] };
 		this.addOrUpdateFilter(newFilter);
 		this.removeBlankFilters();
 		this.signalFiltersChanged();
 	}
 
 	addOrUpdateFilter(newFilter) {
-		let existingFilter = this.filters.find(filter => { return filter.field === newFilter.field; });
+		let existingFilter = this.filters.find(filter => { return filter.property === newFilter.property; });
 		if(existingFilter) {
 			existingFilter.value = newFilter.value;
 		} else {
