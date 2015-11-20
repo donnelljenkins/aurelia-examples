@@ -10,6 +10,12 @@
 			<button-column heading="Actions" caption="Select" click.call="semanticGridButtonClick($event)"></button-column>
 			<custom-column view="../../../examples/grids/demo-custom-column-template.html" heading="Custom"></custom-column>
 			<column property="id" alignment="right"></column>
+
+			<template replace-part="footer">
+				<tr>
+					<td colspan.bind="columns.length">This is the Aurelia Semantic-UI grid!  We tried to make using it as simple as possible.</td>
+				</tr>
+			</template>
 		</grid>
 	</div>
 </template>
