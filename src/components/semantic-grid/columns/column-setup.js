@@ -1,7 +1,6 @@
-import { bindable } from "aurelia-framework";
 import utility from "../utility";
 
-const columnBase = {
+const columnSetup = {
 	setup: function() {
 		this.templatePrefix = utility.snakeCase(this.__proto__.constructor.name);
 		this.heading = this.heading || utility.camelCase(this.property);
@@ -9,4 +8,4 @@ const columnBase = {
 	}
 }
 
-export { columnBase };
+export { columnSetup };
