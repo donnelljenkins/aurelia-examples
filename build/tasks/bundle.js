@@ -19,7 +19,8 @@ var config = {
     "dist/system": {
       includes: [
         'github:Semantic-Org/Semantic-UI',
-        'github:twbs/bootstrap'
+        'github:twbs/bootstrap',
+        'lodash'
       ],
       options: {
         inject: true,
@@ -29,13 +30,15 @@ var config = {
     "dist/aurelia": {
       includes: [
         'aurelia-bootstrapper',
-        'github:aurelia/templating-binding',
-        'github:aurelia/templating-resources',
-        'github:aurelia/templating-router',
-        'github:aurelia/validation',
-        'github:aurelia/loader-default',
-        'github:aurelia/history-browser',
-        'github:aurelia/logging-console'
+        'aurelia-templating-binding',
+        'aurelia-templating-resources',
+        'aurelia-templating-router',
+        'aurelia-validation',
+        'aurelia-loader-default',
+        'aurelia-history-browser',
+        'aurelia-logging-console',
+        'donnelljenkins/aurelia-datagrid',
+        'donnelljenkins/aurelia-semantic-datatable'
       ],
       options: {
         inject: true,

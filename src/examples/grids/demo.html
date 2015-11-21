@@ -1,21 +1,44 @@
 <template>
-	<h1><span class="glyphicon glyphicon-info-sign"></span>Aurelia Grids / Lists</h1>
+	<h1><span class="glyphicon glyphicon-info-sign"></span>Aurelia Data Grids / Tables</h1>
 
-	<div class="ui segment">
-		<h2 class="ui dividing header">Grid [Semantic]</h2>
-		<grid datasource.bind="items" filters-changed.bind="filtersChanged" sort-changed.bind="sortChanged">
-			<column property="name" filterable sortable></column>
-			<column property="title" filterable sortable></column>
-			<boolean-column property="active" filterable sortable></boolean-column>
-			<button-column heading="Actions" caption="Select" click.call="semanticGridButtonClick($event)"></button-column>
-			<custom-column view="../../../examples/grids/demo-custom-column-template.html" heading="Custom"></custom-column>
-			<column property="id" alignment="right"></column>
+<div class="ui blue secondary segment">
+	<h2 class="ui dividing header">Aurelia Data Grid</h2>
+	<grid>
+		<template replace-part="grid-template">
+			<grid-column property="name" filterable sortable></grid-column>
+			<grid-column property="title" filterable sortable></grid-column>
+			<grid-column-checkbox property="active" filterable sortable></grid-column-checkbox>
+			<grid-column-button heading="Actions" caption="Select" button-click.call="$parent.$parent.semanticGridButtonClick($event)"></grid-column-button>
+			<grid-column-template heading="Custom">
+				<template replace-part="custom-template">
+					<compose view="./demo-custom-column-template.html" containerless></compose>
+				</template>
+			</grid-column-template>
+			<grid-column property="id" alignment="right"></grid-column>
+			<grid-column-edit></grid-column-edit>
+		</template>
 
-			<template replace-part="footer">
-				<tr>
-					<td colspan.bind="columns.length">This is the Aurelia Semantic-UI grid!  We tried to make using it as simple as possible.</td>
-				</tr>
-			</template>
-		</grid>
-	</div>
+		<template replace-part="grid-footer-template">
+			<td colspan.bind="columns.length">This is the Aurelia Semantic-UI grid!  We tried to make using it as simple as possible.</td>
+		</template>
+	</grid>
+</div>
+
+<div class="ui secondary orange segment">
+	<h2 class="ui dividing header">Aurelia Semantic Data Table</h2>
+	<data-table datasource.bind="items" filters-changed.bind="filtersChanged" sort-changed.bind="sortChanged">
+		<column property="name" filterable sortable></column>
+		<column property="title" filterable sortable></column>
+		<boolean-column property="active" filterable sortable></boolean-column>
+		<button-column heading="Actions" caption="Select" click.call="semanticGridButtonClick($event)"></button-column>
+		<custom-column view="../../../../../src/examples/grids/demo-custom-column-template.html" heading="Custom"></custom-column>
+		<column property="id" alignment="right"></column>
+
+		<template replace-part="footer">
+			<tr>
+				<td colspan.bind="columns.length">This is the Aurelia Semantic-UI grid!  We tried to make using it as simple as possible.</td>
+			</tr>
+		</template>
+	</data-table>
+</div>
 </template>
