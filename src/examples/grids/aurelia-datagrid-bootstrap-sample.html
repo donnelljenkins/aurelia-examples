@@ -1,0 +1,31 @@
+<template>
+	<div class="panel panel-primary">
+		<h2 class="panel-heading">Aurelia Data Grid (Bootstrap)</h2>
+		
+		<div class="panel-body">
+			<grid css-framework="bootstrap">
+				<template replace-part="grid-template">
+					<grid-column property="name" filterable sortable></grid-column>
+					<grid-column property="title" filterable sortable></grid-column>
+					<grid-column-checkbox property="active" filterable sortable></grid-column-checkbox>
+					<grid-column-button heading="Actions" caption="Select" button-click.call="$parent.$parent.gridButtonClick(row)"></grid-column-button>
+					<grid-column-template heading="Custom">
+						<template replace-part="custom-template">
+							<div class="checkbox">
+								<label class="checkbox">
+									<input type="checkbox">${row.name}
+								</label>
+							</div>
+						</template>
+					</grid-column-template>
+					<grid-column property="id" alignment="right"></grid-column>
+					<grid-column-edit></grid-column-edit>
+				</template>
+
+				<template replace-part="grid-footer-template">
+					<td colspan.bind="columns.length">This is the Aurelia Data Grid using Twitter Bootstrap!  We tried to make using it as simple as possible.</td>
+				</template>
+			</grid>
+		</div>
+	</div>
+</template>

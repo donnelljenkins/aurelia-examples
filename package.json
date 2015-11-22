@@ -87,7 +87,7 @@
       "aurelia-validation": "npm:aurelia-validation@^0.6.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.5",
       "core-js": "npm:core-js@^0.9.4",
-      "donnelljenkins/aurelia-datagrid": "github:donnelljenkins/aurelia-datagrid@^0.1.0",
+      "donnelljenkins/aurelia-datagrid": "github:donnelljenkins/aurelia-datagrid@^0.1.2",
       "donnelljenkins/aurelia-semantic-datatable": "github:donnelljenkins/aurelia-semantic-datatable@master",
       "fetch": "github:github/fetch@^0.9.0",
       "font-awesome": "npm:font-awesome@^4.3.0",

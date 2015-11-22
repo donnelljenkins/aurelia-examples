@@ -1,0 +1,25 @@
+<template>
+	<div class="ui blue secondary segment">
+		<h2 class="ui dividing header">Aurelia Data Grid (Semantic)</h2>
+		
+		<grid>
+			<template replace-part="grid-template">
+				<grid-column property="name" filterable sortable></grid-column>
+				<grid-column property="title" filterable sortable></grid-column>
+				<grid-column-checkbox property="active" filterable sortable></grid-column-checkbox>
+				<grid-column-button heading="Actions" caption="Select" button-click.call="$parent.$parent.gridButtonClick(row)"></grid-column-button>
+				<grid-column-template heading="Custom">
+					<template replace-part="custom-template">
+						<compose view="./demo-custom-column-template.html" containerless></compose>
+					</template>
+				</grid-column-template>
+				<grid-column property="id" alignment="right"></grid-column>
+				<grid-column-edit></grid-column-edit>
+			</template>
+
+			<template replace-part="grid-footer-template">
+				<td colspan.bind="columns.length">This is the Aurelia Semantic-UI grid!  We tried to make using it as simple as possible.</td>
+			</template>
+		</grid>
+	</div>
+</template>

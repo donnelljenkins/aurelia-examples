@@ -14,21 +14,6 @@ System.config({
     "npm:*": "jspm_packages/npm/*"
   },
   bundles: {
-    "system": [
-      "github:Semantic-Org/Semantic-UI@2.1.6",
-      "github:Semantic-Org/Semantic-UI@2.1.6/semantic",
-      "github:Semantic-Org/Semantic-UI@2.1.6/semantic.css!github:systemjs/plugin-css@0.1.19",
-      "github:components/jquery@2.1.4",
-      "github:components/jquery@2.1.4/jquery",
-      "github:jspm/nodelibs-process@0.1.2",
-      "github:jspm/nodelibs-process@0.1.2/index",
-      "github:twbs/bootstrap@3.3.5",
-      "github:twbs/bootstrap@3.3.5/js/bootstrap",
-      "npm:lodash@3.10.1",
-      "npm:lodash@3.10.1/index",
-      "npm:process@0.11.2",
-      "npm:process@0.11.2/browser"
-    ],
     "app-build": [
       "address",
       "address.html!github:systemjs/plugin-text@0.0.2",
@@ -288,10 +273,25 @@ System.config({
       "npm:process@0.11.2/browser",
       "phone-number.html!github:systemjs/plugin-text@0.0.2"
     ],
+    "system": [
+      "github:Semantic-Org/Semantic-UI@2.1.6",
+      "github:Semantic-Org/Semantic-UI@2.1.6/semantic",
+      "github:Semantic-Org/Semantic-UI@2.1.6/semantic.css!github:systemjs/plugin-css@0.1.19",
+      "github:components/jquery@2.1.4",
+      "github:components/jquery@2.1.4/jquery",
+      "github:jspm/nodelibs-process@0.1.2",
+      "github:jspm/nodelibs-process@0.1.2/index",
+      "github:twbs/bootstrap@3.3.5",
+      "github:twbs/bootstrap@3.3.5/js/bootstrap",
+      "npm:lodash@3.10.1",
+      "npm:lodash@3.10.1/index",
+      "npm:process@0.11.2",
+      "npm:process@0.11.2/browser"
+    ],
     "aurelia": [
-      "github:donnelljenkins/aurelia-datagrid@0.1.0",
-      "github:donnelljenkins/aurelia-datagrid@0.1.0/aurelia-grid",
-      "github:donnelljenkins/aurelia-datagrid@0.1.0/grid/grid-configuration",
+      "github:donnelljenkins/aurelia-datagrid@0.1.2",
+      "github:donnelljenkins/aurelia-datagrid@0.1.2/aurelia-grid",
+      "github:donnelljenkins/aurelia-datagrid@0.1.2/grid/grid-configuration",
       "github:donnelljenkins/aurelia-semantic-datatable@master",
       "github:donnelljenkins/aurelia-semantic-datatable@master/aurelia-semantic-datatable",
       "github:jspm/nodelibs-process@0.1.2",
@@ -624,7 +624,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "clean-css": "npm:clean-css@3.4.8",
     "core-js": "npm:core-js@0.9.18",
-    "donnelljenkins/aurelia-datagrid": "github:donnelljenkins/aurelia-datagrid@0.1.0",
+    "donnelljenkins/aurelia-datagrid": "github:donnelljenkins/aurelia-datagrid@0.1.2",
     "donnelljenkins/aurelia-semantic-datatable": "github:donnelljenkins/aurelia-semantic-datatable@master",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
@@ -637,7 +637,7 @@ System.config({
       "css": "github:systemjs/plugin-css@0.1.19",
       "jquery": "github:components/jquery@2.1.4"
     },
-    "github:donnelljenkins/aurelia-datagrid@0.1.0": {
+    "github:donnelljenkins/aurelia-datagrid@0.1.2": {
       "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.0.1",
       "lodash": "npm:lodash@3.10.1"
     },

@@ -1,0 +1,20 @@
+<template>
+	<div class="ui secondary orange segment">
+		<h2 class="ui dividing header">Aurelia Semantic Data Table</h2>
+
+		<data-table datasource.bind="items" filters-changed.bind="filtersChanged" sort-changed.bind="sortChanged">
+			<column property="name" filterable sortable></column>
+			<column property="title" filterable sortable></column>
+			<boolean-column property="active" filterable sortable></boolean-column>
+			<button-column heading="Actions" caption="Select" click.call="gridButtonClick(row)"></button-column>
+			<custom-column view="../../../../../src/examples/grids/demo-custom-column-template.html" heading="Custom"></custom-column>
+			<column property="id" alignment="right"></column>
+
+			<template replace-part="footer">
+				<tr>
+					<td colspan.bind="columns.length">This is the Aurelia Semantic-UI grid!  We tried to make using it as simple as possible.</td>
+				</tr>
+			</template>
+		</data-table>
+	</div>
+</template>

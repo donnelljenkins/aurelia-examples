@@ -66,7 +66,7 @@ export class Demo {
 		return 0;
 	}
 
-	semanticGridButtonClick(row) {
-		alert('Semantic grid clicked!');
+	gridButtonClick(row) {
+		alert(`Grid button clicked for ${row.name}!`);
 	}
 }
